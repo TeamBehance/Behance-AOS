@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BehanceAos" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.BehanceAos" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +12,56 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:includeFontPadding">false</item>
     </style>
+
+    <style name="Display1">
+        <item name="android:fontFamily">@font/gmarket_sans_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">62sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:lineSpacingExtra">18sp</item>
+    </style>
+
+    <style name="TextStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/noto_sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+    <style name="TextStyle2">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/noto_sans_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <style name="TextStyle4">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/noto_sans</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="TextStyle5">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/noto_sans</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <style name="TextStyle3">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/noto_sans</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:lineSpacingExtra">10sp</item>
+    </style>
+
+
 </resources>

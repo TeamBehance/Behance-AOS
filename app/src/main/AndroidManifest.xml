@@ -14,7 +14,7 @@
         android:theme="@style/Theme.BehanceAos"
         tools:targetApi="31">
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.read.BehanceReadActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

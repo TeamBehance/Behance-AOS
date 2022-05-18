@@ -1,11 +1,15 @@
 package com.sopt.behance_aos.ui.read
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.sopt.behance_aos.databinding.ActivityBehanceReadBinding
 
 class BehanceReadActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityBehanceReadBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_behance_read)
+        binding = ActivityBehanceReadBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }

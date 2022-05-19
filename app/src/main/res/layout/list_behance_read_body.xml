@@ -5,17 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shape_behance_read_body"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
+    <ImageView
+        android:id="@+id/iv_behance_read_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginEnd="14dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shape_behance_read_body"
+        android:layout_width="0dp"
+        android:layout_height="73dp"
+        app:layout_constraintStart_toStartOf="@id/iv_behance_read_body"
+        app:layout_constraintEnd_toEndOf="@id/iv_behance_read_body"
+        app:layout_constraintTop_toBottomOf="@id/iv_behance_read_body"
         android:background="@drawable/shape_behance_read_body_rect_white_radius_15"
         android:elevation="6dp"/>
 
@@ -26,7 +33,7 @@
         android:layout_height="wrap_content"
         android:elevation="6dp"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/noto_sans_bold"
         android:textColor="@color/black"
         tools:text="LESJOUR!"

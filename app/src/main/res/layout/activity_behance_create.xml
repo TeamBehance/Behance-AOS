@@ -114,7 +114,8 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:elevation="3dp"
-            app:paddingTopSystemWindowInsets="true"
+            app:behavior_fitToContents="false"
+            app:behavior_halfExpandedRatio="0.5"
             app:behavior_hideable="false"
             app:behavior_peekHeight="49dp"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">

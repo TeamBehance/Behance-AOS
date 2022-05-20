@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_behance_read_head"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/test"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="5dp"
-        android:background="@drawable/border_behance_read_head_circle"/>
+    <data>
+        <variable
+            name="head"
+            type="com.sopt.behance_aos.ui.read.BehanceReadHeadData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_behance_read_head"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/border_behance_read_head_circle"
+            android:padding="5dp"
+            android:src="@{head.image}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:clipToPadding="false" />
+
+        <TextView
+            android:id="@+id/tv_behance_read_head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="#545454"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_behance_read_head"
+            app:layout_constraintStart_toStartOf="@id/iv_behance_read_head"
+            app:layout_constraintTop_toBottomOf="@id/iv_behance_read_head"
+            android:text="@{head.title}"/>
 
 
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

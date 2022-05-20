@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="galleryRecycler"
+            type="com.sopt.behance_aos.data.GalleryData" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="2dp">
+
+        <ImageView
+            android:id="@+id/iv_create_gallery"
+            android:layout_width="87dp"
+            android:layout_height="86dp"
+            loadImage="@{galleryRecycler.img}"
+            tools:src="@drawable/img_create_gallery1" />
+    </LinearLayout>
+</layout>

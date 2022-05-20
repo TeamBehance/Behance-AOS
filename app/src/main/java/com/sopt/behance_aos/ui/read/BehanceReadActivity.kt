@@ -7,6 +7,7 @@ import com.sopt.behance_aos.R
 import com.sopt.behance_aos.databinding.ActivityBehanceReadBinding
 import java.util.Collections.addAll
 
+
 class BehanceReadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBehanceReadBinding
     private lateinit var viewPagerAdapter: BehanceReadViewPagerAdapter

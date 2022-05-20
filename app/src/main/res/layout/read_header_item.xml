@@ -11,6 +11,7 @@
         android:layout_height="118dp"
         android:clipToPadding="false"
         android:orientation="horizontal"
+        android:overScrollMode="never"
         android:paddingEnd="21dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

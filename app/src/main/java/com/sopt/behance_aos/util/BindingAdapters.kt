@@ -8,6 +8,12 @@ import com.sopt.behance_aos.R
 object BindingAdapters {
 
     @JvmStatic
+    @BindingAdapter("loadImage")
+    fun setImg (view: ImageView,imageInt:Int) {
+        view.setImageResource(imageInt)
+    }
+
+    @JvmStatic
     @BindingAdapter("setCircleImage")
     fun setCircleImage(imageview: ImageView, drawable : Int?) {
         drawable?.let {

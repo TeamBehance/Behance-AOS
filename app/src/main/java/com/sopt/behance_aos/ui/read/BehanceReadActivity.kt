@@ -2,7 +2,9 @@ package com.sopt.behance_aos.ui.read
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.AbsListView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.sopt.behance_aos.R
 import com.sopt.behance_aos.databinding.ActivityBehanceReadBinding
@@ -21,6 +23,7 @@ class BehanceReadActivity : AppCompatActivity() {
 
         initAdapter()
         initBottomNavi()
+        restraintOverScrollMode()
     }
 
     private fun initAdapter() {
@@ -54,6 +57,10 @@ class BehanceReadActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun restraintOverScrollMode(){
+        binding.vpBehanceRead.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
     }
 
     companion object {

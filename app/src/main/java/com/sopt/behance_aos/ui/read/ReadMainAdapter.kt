@@ -68,7 +68,7 @@ class ReadMainAdapter(private val readHeaderAdapter: ReadHeaderAdapter) :
     class ReadBodyViewHolder(val binding: ReadBodyItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: ReadBodyData) {
-
+            binding.readBodyData = data
         }
     }
 

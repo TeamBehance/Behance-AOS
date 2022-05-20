@@ -25,7 +25,8 @@ class ReadHeaderAdapter() : ListAdapter<ReadHeadData, ReadHeaderAdapter.HeaderDe
     class HeaderDetailViewHolder(val binding: ReadHeaderDetailItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: ReadHeadData) {
-
+            binding.readHeadData = data
+            binding.position = adapterPosition
         }
     }
 

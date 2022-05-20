@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-        name="viewModel"
-        type="com.sopt.behance_aos.ui.read.BehanceReadFragment"/>
-        </data>
+            name="viewModel"
+            type="com.sopt.behance_aos.ui.read.BehanceReadFragment" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,6 +19,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_read"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/read_body_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

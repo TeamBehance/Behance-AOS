@@ -1,10 +1,12 @@
 package com.sopt.behance_aos.ui.read
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.sopt.behance_aos.R
 import com.sopt.behance_aos.databinding.ActivityBehanceReadBinding
+import com.sopt.behance_aos.ui.create.BehanceCreateActivity
 import java.util.Collections.addAll
 
 
@@ -42,7 +44,11 @@ class BehanceReadActivity : AppCompatActivity() {
                     binding.vpBehanceRead.setCurrentItem(FIRST_FRAGMENT, false)
                     return@setOnItemSelectedListener true
                 }
-
+                R.id.menu_android_my -> {
+                    val intent = Intent(this,BehanceCreateActivity::class.java)
+                    startActivity(intent)
+                    return@setOnItemSelectedListener true
+                }
                 else -> {
                     return@setOnItemSelectedListener false
                 }

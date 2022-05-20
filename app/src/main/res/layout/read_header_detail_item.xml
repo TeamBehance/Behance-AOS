@@ -5,6 +5,15 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="readHeadData"
+            type="com.sopt.behance_aos.ui.read.model.ReadHeadData" />
+
+        <variable
+            name="position"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,6 +24,7 @@
             android:id="@+id/iv_read_header_detail_background"
             android:layout_width="63dp"
             android:layout_height="63dp"
+            android:visibility="@{position == 0 ? View.GONE : View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="@+id/iv_read_header_detail_image"
             app:layout_constraintEnd_toEndOf="@+id/iv_read_header_detail_image"
             app:layout_constraintStart_toStartOf="@+id/iv_read_header_detail_image"
@@ -27,6 +37,7 @@
             android:layout_height="53dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="33dp"
+            setCircleImage="@{readHeadData.image}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
@@ -36,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="TextView"
+            android:text="@{position == 0 ? `+ 추가` : readHeadData.title}"
             android:textAppearance="@style/TextStyle3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/iv_read_header_detail_image"

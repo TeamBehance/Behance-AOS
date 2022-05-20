@@ -1,4 +1,4 @@
-package com.sopt.behance_aos.ui.read
+package com.sopt.behance_aos.ui.read.model
 
 
 data class BehanceReadHeadData(

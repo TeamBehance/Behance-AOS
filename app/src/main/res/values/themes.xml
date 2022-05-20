@@ -63,5 +63,13 @@
         <item name="android:lineSpacingExtra">10sp</item>
     </style>
 
+    <style name="BehanceH1">
+        <item name="android:fontFamily">@font/noto_sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+
 
 </resources>

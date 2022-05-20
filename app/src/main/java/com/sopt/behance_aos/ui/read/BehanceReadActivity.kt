@@ -58,6 +58,5 @@ class BehanceReadActivity : AppCompatActivity() {
 
     companion object {
         const val FIRST_FRAGMENT = 0
-        const val SECOND_FRAGMENT = 1
     }
 }

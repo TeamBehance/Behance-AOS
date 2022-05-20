@@ -120,6 +120,11 @@
             app:behavior_peekHeight="49dp"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_create_icon_list"
                 android:layout_width="match_parent"
@@ -175,6 +180,19 @@
                     app:layout_constraintStart_toEndOf="@id/btn_create_text"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_create_gallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:spanCount="3"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/item_create_gallery">
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
 
         </FrameLayout>
 

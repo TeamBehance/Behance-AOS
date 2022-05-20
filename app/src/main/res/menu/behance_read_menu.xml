@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_android_home"
+        android:icon="@drawable/ic_android_home"
+        android:title="@string/behance_read_home" />
 
+    <item
+        android:id="@+id/menu_android_search"
+        android:icon="@drawable/ic_android_search"
+        android:title="@string/behance_read_search"/>
+
+    <item
+        android:id="@+id/menu_android_tv"
+        android:icon="@drawable/ic_android_tv"
+        android:title="@string/behance_read_tv"/>
+
+    <item
+        android:id="@+id/menu_android_alarm"
+        android:icon="@drawable/ic_android_tv"
+        android:title="@string/behance_read_alarm"/>
+
+    <item
+        android:id="@+id/menu_android_my"
+        android:icon="@drawable/ic_android_my"
+        android:title="@string/behance_read_my"/>
 </menu>

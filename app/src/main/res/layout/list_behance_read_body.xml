@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="body"
+            type="com.sopt.behance_aos.ui.read.BehanceReadBodyData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_behance_read_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="13dp"
+            android:src="@{body.image}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/shape_behance_read_body"
+            android:layout_width="0dp"
+            android:layout_height="73dp"
+            android:background="@drawable/shape_behance_read_body_rect_white_radius_15"
+            android:elevation="6dp"
+            app:layout_constraintEnd_toEndOf="@id/iv_behance_read_body"
+            app:layout_constraintStart_toStartOf="@id/iv_behance_read_body"
+            app:layout_constraintTop_toBottomOf="@id/iv_behance_read_body" />
+
+
+        <TextView
+            android:id="@+id/tv_behance_read_body_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="12dp"
+            android:elevation="6dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/shape_behance_read_body"
+            app:layout_constraintTop_toTopOf="@id/shape_behance_read_body"
+            android:text="@{body.title}" />
+
+        <TextView
+            android:id="@+id/tv_behance_read_body_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="5dp"
+            android:elevation="6dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/tv_behance_read_body_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_behance_read_body_title"
+            android:text="@{body.name}"
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Behance-Aos</string>
+    <string name="behance_read_home">홈</string>
+    <string name="behance_read_search">검색</string>
+    <string name="behance_read_tv">티비</string>
+    <string name="behance_read_alarm">알람</string>
+    <string name="behance_read_my">프로필</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
     <!-- BehanceCreateActivity -->
     <string name="create_re_organization">재정리</string>

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    
+
     buildFeatures{
         viewBinding true
         dataBinding true
@@ -36,7 +36,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
 }
 
 dependencies {
@@ -51,6 +50,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'io.github.ParkSangGwon:tedimagepicker:1.2.8'
 
     //glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
@@ -73,4 +73,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+
+    // image picker
+    implementation "io.github.ParkSangGwon:tedimagepicker:1.2.8"
 }

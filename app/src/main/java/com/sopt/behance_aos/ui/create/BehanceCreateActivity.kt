@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide
 import com.sopt.behance_aos.R
 import com.sopt.behance_aos.data.MediaStoreImage
 import com.sopt.behance_aos.ui.create.adpater.GalleryAdapter
+import com.sopt.behance_aos.util.GridItemSpaceDecoration
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -98,8 +99,9 @@ class BehanceCreateActivity : AppCompatActivity() {
     private fun initAdapter() {
         val galleryAdapter = GalleryAdapter()
         binding.rvCreateGallery.also { it ->
-            it.layoutManager = GridLayoutManager(this, 4)
-            it.adapter = galleryAdapter
+            it.layoutManager = GridLayoutManager(this, 4) // 아이템 개수 4개
+            it.addItemDecoration(GridItemSpaceDecoration(2,1)) // 아이템 사이에 간격 넣기
+            it.adapter = galleryAdapter // 어댑터 연결
         }
 
         images.observe(this) { images ->

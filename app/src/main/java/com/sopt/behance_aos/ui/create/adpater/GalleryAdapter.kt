@@ -2,28 +2,48 @@ package com.sopt.behance_aos.ui.create.adpater
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.behance_aos.data.GalleryData
+import com.bumptech.glide.Glide
+import com.sopt.behance_aos.data.MediaStoreImage
 import com.sopt.behance_aos.databinding.ItemCreateGalleryBinding
 
-class GalleryAdapter: RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
+class GalleryAdapter :
+    ListAdapter<MediaStoreImage, ImageViewHolder>(imageDiffCallback) {
 
-    var galleryList= mutableListOf<GalleryData>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryHolder {
-        val binding = ItemCreateGalleryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return GalleryHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
+        val binding = ItemCreateGalleryBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return ImageViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: GalleryHolder, position: Int) {
-        holder.onBind(galleryList[position])
+    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
+        val mediaStoreImage = getItem(position)
+
+        Glide.with(holder.imageView)
+            .load(mediaStoreImage.contentUri)
+            .thumbnail(0.33f)
+            .centerCrop()
+            .into(holder.imageView)
     }
 
-    override fun getItemCount(): Int = galleryList.size
+    companion object {
+        val imageDiffCallback = object : DiffUtil.ItemCallback<MediaStoreImage>() {
+            override fun areItemsTheSame(oldItem: MediaStoreImage, newItem: MediaStoreImage) =
+                oldItem.id == newItem.id
 
-    inner class GalleryHolder(private var binding:ItemCreateGalleryBinding):RecyclerView.ViewHolder(binding.root){
-        fun onBind(data:GalleryData){
-            binding.galleryRecycler = data
+            override fun areContentsTheSame(oldItem: MediaStoreImage, newItem: MediaStoreImage) =
+                oldItem == newItem
         }
     }
+
+}
+
+class ImageViewHolder(binding: ItemCreateGalleryBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+    val imageView = binding.ivCreateGallery
 }

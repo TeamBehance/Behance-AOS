@@ -9,8 +9,10 @@
         tools:context=".ui.create.BehanceCreateActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_create_top"
@@ -19,55 +21,55 @@
                 android:background="@color/white"
                 android:elevation="3dp"
                 android:fitsSystemWindows="true"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
                     android:id="@+id/btn_create_back"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_create_back"
                     android:layout_marginStart="10dp"
+                    android:background="@android:color/transparent"
+                    android:paddingHorizontal="4dp"
                     android:paddingTop="25dp"
                     android:paddingBottom="18dp"
-                    android:paddingHorizontal="4dp"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_create_back"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_create_next"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginEnd="18dp"
                     android:fontFamily="@font/noto_sans_regular"
-                    android:text="@string/create_next"
+                    android:lineSpacingExtra="8sp"
                     android:paddingTop="22dp"
                     android:paddingBottom="14dp"
-                    android:layout_marginEnd="18dp"
-                    android:textSize="12sp"
-                    android:lineSpacingExtra="8sp"
+                    android:text="@string/create_next"
                     android:textColor="@color/bgray"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_create_re_organization"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
                     android:fontFamily="@font/noto_sans_regular"
-                    android:text="@string/create_re_organization"
+                    android:lineSpacingExtra="8sp"
                     android:paddingTop="22dp"
                     android:paddingBottom="14dp"
-                    android:layout_marginEnd="20dp"
-                    android:textSize="12sp"
-                    android:lineSpacingExtra="8sp"
+                    android:text="@string/create_re_organization"
                     android:textColor="@color/bgray"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tv_create_next" />
+                    app:layout_constraintEnd_toStartOf="@id/tv_create_next"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -75,38 +77,51 @@
                 android:id="@+id/iv_create_square"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/img_create_sqaure"
                 android:layout_marginTop="158dp"
+                android:src="@drawable/img_create_sqaure"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout_create_top"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/layout_create_top" />
 
             <TextView
                 android:id="@+id/tv_create_tool_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="@string/create_tool_info"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextStyle5"
                 android:textColor="@color/lightgreen"
-                android:layout_marginTop="10dp"
-                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_create_square"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/iv_create_square" />
 
             <TextView
                 android:id="@+id/tv_create_project_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans_medium"
-                android:textSize="14sp"
                 android:lineSpacingExtra="8sp"
+                android:text="@string/create_project_start"
                 android:textColor="@color/gray_2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_create_tool_info"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="@string/create_project_start"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_create_tool_info" />
+
+            <ImageView
+                android:id="@+id/iv_create_selected_photo"
+                android:background="@android:color/transparent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_create_top"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <FrameLayout
             android:id="@+id/layout_create_bottom_sheet"
@@ -184,18 +199,11 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_create_gallery"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:spanCount="3"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    tools:listitem="@layout/item_create_gallery">
-                </androidx.recyclerview.widget.RecyclerView>
-
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
         </FrameLayout>
-
 
 
 

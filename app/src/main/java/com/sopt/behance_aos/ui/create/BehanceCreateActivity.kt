@@ -9,6 +9,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.sopt.behance_aos.R
 import com.sopt.behance_aos.data.MediaStoreImage
 import com.sopt.behance_aos.ui.create.adpater.GalleryAdapter
@@ -35,30 +38,32 @@ class BehanceCreateActivity : AppCompatActivity() {
     private val images = MutableLiveData<List<MediaStoreImage>>()
 
     private val requestPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) { // 권한 획득 성공 시
-                // 갤러리 이미지 띄우기
-                initAdapter()
+            registerForActivityResult(
+                    ActivityResultContracts.RequestPermission()
+            ) { isGranted: Boolean ->
+                if (isGranted) { // 권한 획득 성공 시
+                    // 갤러리 이미지 띄우기
+                    initAdapter()
 
-            } else { // 권한 획득 거부 시
-                Toast.makeText(this, "갤러리에 접근하기 위해서는 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                } else { // 권한 획득 거부 시
+                    Toast.makeText(this, "갤러리에 접근하기 위해서는 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                }
             }
-        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_behance_create)
+        backEvent()
         requestPermission()
     }
 
 
+    // 권한 체크 함수
     private fun requestPermission() {
         when {
             ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_EXTERNAL_STORAGE
+                    this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
             ) == PackageManager.PERMISSION_GRANTED -> {  // 이미 권한부여를 받았기에 권한이 필요한 작업 수행
                 // 갤러리 이미지 띄우기
                 initAdapter()
@@ -77,74 +82,84 @@ class BehanceCreateActivity : AppCompatActivity() {
 
     private fun showInContextUI() {
         AlertDialog.Builder(this)
-            .setTitle("권한 동의 필요")
-            .setMessage("갤러리에 접근하기 위해서는 권한이 필요합니다.")
-            .setPositiveButton("동의") { _, _ ->
-                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-            }
-            .setNegativeButton("거부") { _, _ ->
-                Toast.makeText(this, "갤러리에 접근하기 위해서는 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
-            }
-            .create()
-            .show()
+                .setTitle("권한 동의 필요")
+                .setMessage("갤러리에 접근하기 위해서는 권한이 필요합니다.")
+                .setPositiveButton("동의") { _, _ ->
+                    requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                }
+                .setNegativeButton("거부") { _, _ ->
+                    Toast.makeText(this, "갤러리에 접근하기 위해서는 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                }
+                .create()
+                .show()
     }
 
+    // 리사이클러뷰 연결
     private fun initAdapter() {
         val galleryAdapter = GalleryAdapter()
         binding.rvCreateGallery.also { it ->
-            it.layoutManager = GridLayoutManager(this,4)
-            it.adapter =galleryAdapter
+            it.layoutManager = GridLayoutManager(this, 4)
+            it.adapter = galleryAdapter
         }
 
         images.observe(this) { images ->
             galleryAdapter.submitList(images)
         }
 
-        showImages()
+        showImages() // 이미지 데이터 연결
+
+        // 이미지 클릭 이벤트
+        galleryAdapter.setOnItemClickListener(object : GalleryAdapter.OnItemClickListener {
+            override fun onItemClick(v: View, uri: Uri, pos: Int) {
+                if (binding.ivCreateSquare.visibility != View.INVISIBLE) { // 안내 메세지 숨기기
+                    hideContent()
+                }
+                Glide.with(this@BehanceCreateActivity).load(uri).into(binding.ivCreateSelectedPhoto)
+            }
+        })
     }
 
-    private fun showImages(){
+    private fun showImages() {
         GlobalScope.launch {
             val imageList = queryImages()
             images.postValue(imageList)
         }
     }
 
-
     private suspend fun queryImages(): List<MediaStoreImage> {
         val images = mutableListOf<MediaStoreImage>()
 
         withContext(Dispatchers.IO) {
             val projection = arrayOf(
-                MediaStore.Images.Media._ID,
-                MediaStore.Images.Media.DISPLAY_NAME,
-                MediaStore.Images.Media.DATE_TAKEN
+                    MediaStore.Images.Media._ID,
+                    MediaStore.Images.Media.DISPLAY_NAME,
+                    MediaStore.Images.Media.DATE_TAKEN
             )
             val selection = "${MediaStore.Images.Media.DATE_TAKEN} >= ?"
             val selectionArgs = arrayOf(
-                dateToTimestamp(day = 1, month = 1, year = 1970).toString()
+                    dateToTimestamp(day = 1, month = 1, year = 1970).toString()
             )
 
             val sortOrder = "${MediaStore.Images.Media.DATE_TAKEN} DESC"
             contentResolver.query(
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                projection,
-                null, // selection
-                null, // selectionArgs
-                sortOrder
+                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                    projection,
+                    null, // selection
+                    null, // selectionArgs
+                    sortOrder
             )?.use { cursor ->
                 val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
                 val dateTakenColumn =
-                    cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_TAKEN)
+                        cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_TAKEN)
                 val displayNameColumn =
-                    cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
+                        cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
                 while (cursor.moveToNext()) {
                     val id = cursor.getLong(idColumn)
                     val dateTaken = Date(cursor.getLong(dateTakenColumn))
                     val displayName = cursor.getString(displayNameColumn)
                     val contentUri = Uri.withAppendedPath(
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                        id.toString()
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                            id.toString()
                     )
 
                     val image = MediaStoreImage(id, displayName, dateTaken, contentUri)
@@ -161,7 +176,22 @@ class BehanceCreateActivity : AppCompatActivity() {
 
     @SuppressLint("SimpleDateFormat")
     private fun dateToTimestamp(day: Int, month: Int, year: Int): Long =
-        SimpleDateFormat("dd.MM.yyyy").let { formatter ->
-            formatter.parse("$day.$month.$year")?.time ?: 0
+            SimpleDateFormat("dd.MM.yyyy").let { formatter ->
+                formatter.parse("$day.$month.$year")?.time ?: 0
+            }
+
+    private fun backEvent() {
+        binding.btnCreateBack.setOnClickListener {
+            finish()
         }
+    }
+
+    // 안내 이미지 숨기기
+    private fun hideContent() {
+        binding.apply {
+            ivCreateSquare.visibility = View.INVISIBLE
+            tvCreateToolInfo.visibility = View.INVISIBLE
+            tvCreateProjectStart.visibility = View.INVISIBLE
+        }
+    }
 }

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -37,6 +38,8 @@ class BehanceCreateActivity : AppCompatActivity() {
     private lateinit var binding: com.sopt.behance_aos.databinding.ActivityBehanceCreateBinding
 
     private val images = MutableLiveData<List<MediaStoreImage>>()
+
+    private var fileUri:Uri? = null
 
     private val requestPermissionLauncher =
             registerForActivityResult(
@@ -117,6 +120,7 @@ class BehanceCreateActivity : AppCompatActivity() {
                     hideContent()
                 }
                 Glide.with(this@BehanceCreateActivity).load(uri).into(binding.ivCreateSelectedPhoto)
+                fileUri = uri
             }
         })
     }
@@ -194,6 +198,18 @@ class BehanceCreateActivity : AppCompatActivity() {
             ivCreateSquare.visibility = View.INVISIBLE
             tvCreateToolInfo.visibility = View.INVISIBLE
             tvCreateProjectStart.visibility = View.INVISIBLE
+            tvCreateNext.setTextColor(Color.BLACK)
+            tvCreateReOrganization.setTextColor(Color.BLACK)
         }
     }
+
+    private fun nextBtn(){
+        binding.tvCreateNext.setOnClickListener{
+            // 파일 업로드 서버 통신
+
+            // response 값 넘겨주기
+        }
+    }
+
+
 }

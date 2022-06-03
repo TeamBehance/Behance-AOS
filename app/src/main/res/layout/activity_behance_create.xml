@@ -50,6 +50,7 @@
                     android:text="@string/create_next"
                     android:textColor="@color/bgray"
                     android:textSize="12sp"
+                    android:enabled="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

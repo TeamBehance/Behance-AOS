@@ -1,6 +1,7 @@
 package com.sopt.behance_aos.data
 
 
+import com.sopt.behance_aos.ui.create.CreateService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,6 +25,7 @@ object RetrofitBuilder {
 
     // 이 밑에다가 이런식으로 서비스 객체 생성하기
     // val sampleService: SampleService = retrofit.create(SampleService::class.java)
+    val createService: CreateService = retrofit.create(CreateService::class.java)
 
 
 

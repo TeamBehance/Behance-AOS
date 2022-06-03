@@ -13,7 +13,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_create_top"
                 android:layout_width="match_parent"
@@ -51,6 +50,7 @@
                     android:text="@string/create_next"
                     android:textColor="@color/bgray"
                     android:textSize="12sp"
+                    android:enabled="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

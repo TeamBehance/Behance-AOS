@@ -45,7 +45,7 @@ class MultiPartResolver(context :Context) {
         val file = File(replaceFileName(uri.toString()))
         val surveyBody =
             byteArrayOutputStream.toByteArray().toRequestBody("image/jpeg".toMediaTypeOrNull())
-        return MultipartBody.Part.createFormData("image", file.name, surveyBody)
+        return MultipartBody.Part.createFormData("file", file.name, surveyBody)
     }
 
     fun createImgMultiPart(bitmap: Bitmap): MultipartBody.Part {

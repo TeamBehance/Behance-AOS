@@ -19,19 +19,21 @@ class BehanceTitleActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        postBtn()
+        val photo = intent.getStringExtra("link")!!
+
+        postBtn(photo)
     }
 
-    private fun postBtn() {
+    private fun postBtn(photo: String) {
         binding.tvCreatePost.setOnClickListener {
-            postProject()
+            postProject(photo)
         }
     }
 
-    private fun postProject() {
+    private fun postProject(photo: String) {
         val requestProject = RequestProject(
             title = binding.etvCreateTitle.text.toString(),
-            photo = "https://behance10.s3.ap-northeast-2.amazonaws.com/1654256027949_%09s%0Fs%05u%EF%BF%BD%09c%EF%BF%BD%202022-06-02%20%0Bi%12n%2010.59.23.png",
+            photo = photo,
             writer = "628fdb7fb376b6b9a1cefe6c"
         )
 
@@ -42,8 +44,6 @@ class BehanceTitleActivity :
                 call: Call<ResponseProject>,
                 response: Response<ResponseProject>
             ) {
-                Log.d("testing", response.toString())
-                Log.d("testing", response.body().toString())
 
                 if (response.isSuccessful) { // 파일 생성 성공
 

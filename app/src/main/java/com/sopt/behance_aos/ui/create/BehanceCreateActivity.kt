@@ -225,13 +225,15 @@ class BehanceCreateActivity : AppCompatActivity() {
                     call: Call<ResponseFile>,
                     response: Response<ResponseFile>
                 ) {
-                    Log.d("testing",response.toString())
-                    Log.d("testing",response.body().toString())
 
                     if (response.isSuccessful) { // 파일 생성 성공
 
-                        val intent = Intent(this@BehanceCreateActivity,BehanceTitleActivity::class.java)
-                        intent.putExtra("id",response.body()?.data?._id) // 통신으로 받은 유저 id값 넘겨주기
+                        val intent =
+                            Intent(this@BehanceCreateActivity, BehanceTitleActivity::class.java)
+                        intent.putExtra(
+                            "link",
+                            response.body()?.data?.link
+                        ) // 통신으로 받은 유저 link 값 넘겨주기
 
                         startActivity(intent)
 

@@ -1,8 +1,8 @@
 package com.sopt.behance_aos.ui.create
 
-import com.sopt.behance_aos.model.request.RequestProject
-import com.sopt.behance_aos.model.response.ResponseFile
-import com.sopt.behance_aos.model.response.ResponseProject
+import com.sopt.behance_aos.ui.create.model.request.RequestProject
+import com.sopt.behance_aos.ui.create.model.response.ResponseFile
+import com.sopt.behance_aos.ui.create.model.response.ResponseProject
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.Body

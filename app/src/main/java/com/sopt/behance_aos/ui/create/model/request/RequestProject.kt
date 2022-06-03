@@ -1,4 +1,4 @@
-package com.sopt.behance_aos.model.request
+package com.sopt.behance_aos.ui.create.model.request
 
 
 data class RequestProject(

@@ -12,7 +12,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -24,8 +23,8 @@ import com.bumptech.glide.Glide
 import com.sopt.behance_aos.R
 import com.sopt.behance_aos.data.MediaStoreImage
 import com.sopt.behance_aos.data.RetrofitBuilder.createService
-import com.sopt.behance_aos.model.response.ResponseFile
 import com.sopt.behance_aos.ui.create.adpater.GalleryAdapter
+import com.sopt.behance_aos.ui.create.model.response.ResponseFile
 import com.sopt.behance_aos.ui.create.title.BehanceTitleActivity
 import com.sopt.behance_aos.util.GridItemSpaceDecoration
 import com.sopt.behance_aos.util.MultiPartResolver
@@ -226,6 +225,9 @@ class BehanceCreateActivity : AppCompatActivity() {
                     call: Call<ResponseFile>,
                     response: Response<ResponseFile>
                 ) {
+                    Log.d("testing",response.toString())
+                    Log.d("testing",response.body().toString())
+
                     if (response.isSuccessful) { // 파일 생성 성공
 
                         val intent = Intent(this@BehanceCreateActivity,BehanceTitleActivity::class.java)

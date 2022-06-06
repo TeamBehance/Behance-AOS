@@ -7,8 +7,8 @@ import com.sopt.behance_aos.R
 import com.sopt.behance_aos.data.RetrofitBuilder
 import com.sopt.behance_aos.databinding.ActivityBehanceTitleBinding
 import com.sopt.behance_aos.ui.base.BaseActivity
-import com.sopt.behance_aos.ui.create.model.request.RequestProject
-import com.sopt.behance_aos.ui.create.model.response.ResponseProject
+import com.sopt.behance_aos.data.request.RequestProject
+import com.sopt.behance_aos.data.response.ResponseProject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

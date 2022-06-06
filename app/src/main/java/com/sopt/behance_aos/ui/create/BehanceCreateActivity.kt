@@ -24,7 +24,7 @@ import com.sopt.behance_aos.R
 import com.sopt.behance_aos.data.MediaStoreImage
 import com.sopt.behance_aos.data.RetrofitBuilder.createService
 import com.sopt.behance_aos.ui.create.adpater.GalleryAdapter
-import com.sopt.behance_aos.ui.create.model.response.ResponseFile
+import com.sopt.behance_aos.data.response.ResponseFile
 import com.sopt.behance_aos.ui.create.title.BehanceTitleActivity
 import com.sopt.behance_aos.util.GridItemSpaceDecoration
 import com.sopt.behance_aos.util.MultiPartResolver

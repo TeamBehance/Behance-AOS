@@ -4,7 +4,6 @@ import com.sopt.behance_aos.data.response.ResponseProjectList
 import com.sopt.behance_aos.data.response.ResponseStoryList
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.POST
 
 interface ReadService{
 

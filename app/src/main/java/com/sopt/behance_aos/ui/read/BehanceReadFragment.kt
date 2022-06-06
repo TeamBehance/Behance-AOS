@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import com.sopt.behance_aos.R
 import com.sopt.behance_aos.data.RetrofitBuilder.readService
-import com.sopt.behance_aos.data.response.ResponseProject
 import com.sopt.behance_aos.data.response.ResponseProjectList
 import com.sopt.behance_aos.data.response.ResponseStoryList
 import com.sopt.behance_aos.databinding.FragmentBehanceReadBinding
@@ -94,8 +93,6 @@ class BehanceReadFragment :
 
 
     }
-
-
 
     /*private fun initAdapter() {
         readHeaderAdapter = ReadHeaderAdapter()

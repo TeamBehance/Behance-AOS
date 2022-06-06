@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopt.behance_aos.databinding.ReadBodyItemBinding
 import com.sopt.behance_aos.databinding.ReadHeaderItemBinding
 import com.sopt.behance_aos.ui.read.model.ReadBodyData
-import java.lang.RuntimeException
 
 class ReadMainAdapter(private val readHeaderAdapter: ReadHeaderAdapter) :
     ListAdapter<ReadBodyData, RecyclerView.ViewHolder>(mainDiffUtil) {

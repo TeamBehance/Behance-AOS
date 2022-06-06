@@ -2,14 +2,13 @@ package com.sopt.behance_aos.ui.read
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.AbsListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.sopt.behance_aos.R
 import com.sopt.behance_aos.databinding.ActivityBehanceReadBinding
 import com.sopt.behance_aos.ui.create.BehanceCreateActivity
-import java.util.Collections.addAll
+import com.sopt.behance_aos.ui.read.adapter.BehanceReadViewPagerAdapter
 
 
 class BehanceReadActivity : AppCompatActivity() {

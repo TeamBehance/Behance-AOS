@@ -28,7 +28,7 @@ object BindingAdapters {
         }
     }
 
-    @JvmStatic
+    /*@JvmStatic
     @BindingAdapter("setImage")
     fun setImage(imageview: ImageView, drawable : Int?) {
         drawable?.let {
@@ -36,5 +36,16 @@ object BindingAdapters {
                 .load(it)
                 .into(imageview)
         }
+    }*/
+
+    @JvmStatic
+    @BindingAdapter("setImage")
+    fun setImage(imageview: ImageView, imgUri : String?) {
+        imgUri?.let {
+            Glide.with(imageview.context)
+                .load(it)
+                .into(imageview)
+        }
     }
+
 }

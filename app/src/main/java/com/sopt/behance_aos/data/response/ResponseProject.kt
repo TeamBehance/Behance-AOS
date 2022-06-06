@@ -1,4 +1,4 @@
-package com.sopt.behance_aos.ui.create.model.response
+package com.sopt.behance_aos.data.response
 
 data class ResponseProject(
     val status: Int,
